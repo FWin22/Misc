@@ -1,0 +1,30 @@
+# from http://www.huyng.com/posts/sane-color-scheme-for-matplotlib/
+
+font.family         : serif
+#font.serif			: Times
+font.size			: 10.0
+
+figure.dpi : 300
+
+patch.linewidth        : 0.5
+lines.linewidth   : 1.0
+lines.markersize : 4
+savefig.dpi         : 300
+
+axes.linewidth      : 0.5     # edge linewidth
+axes.titlesize : 10
+axes.labelsize : 10
+xtick.labelsize : 8
+ytick.labelsize : 8
+
+xtick.major.width : 0.50
+ytick.major.width : 0.50
+xtick.minor.width : 0.25
+ytick.minor.width : 0.25
+
+legend.fontsize      : 8
+legend.scatterpoints : 1
+legend.loc           : upper right
+
+pgf.texsystem: pdflatex
+text.usetex: True        
