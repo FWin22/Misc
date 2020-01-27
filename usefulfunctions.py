@@ -1031,12 +1031,12 @@ def pretty_colorbar(fig, axs, im, position='top', pad=0.1, width=0.03, cbar_labe
         cb.ax.xaxis.set_ticks_position('bottom')
         cb.ax.xaxis.set_label_position('bottom')
     elif position == 'right':
-        ax_cbar = fig.add_axes([1-pad, p[0][1], width, p[0][3] - p[0][1]])
+        ax_cbar = fig.add_axes([1-pad, p[-1][1], width, p[0][3] - p[-1][1]])
         cb = plt.colorbar(im, cax=ax_cbar, orientation='vertical')
         cb.ax.yaxis.set_ticks_position('right')
         cb.ax.yaxis.set_label_position('right')
     elif position == 'left':
-        ax_cbar = fig.add_axes([pad, p[0][1], width, p[0][3] - p[0][1]])
+        ax_cbar = fig.add_axes([pad, p[-1][1], width, p[0][3] - p[-1][1]])
         cb = plt.colorbar(im, cax=ax_cbar, orientation='vertical')
         cb.ax.yaxis.set_ticks_position('left')
         cb.ax.yaxis.set_label_position('left')
