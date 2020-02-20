@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2014 by Forschungszentrum Juelich GmbH
-# Author: J. Caron
-#
+
 """This module provides the :class:`~.Regularisator` class which represents a regularisation term
 which adds additional constraints to a costfunction to minimize."""
 
