@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2014 by Forschungszentrum Juelich GmbH
-# Author: J. Caron
+
 #
 """This module provides the :class:`~.Costfunction` class which represents a strategy to calculate
 the so called `cost` of a threedimensional magnetization distribution."""
