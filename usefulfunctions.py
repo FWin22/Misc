@@ -1063,3 +1063,53 @@ def pretty_colorbar(fig, axs, im, position='top', pad=0.1, width=0.03, cbar_labe
             t[-1].set_verticalalignment('bottom')
 
     return cb
+
+def annotate_barplot(ax, decimals=0, unit=None, annotate_colored=False, padding=(0.03, 0.01), color='black', fontsize=None,
+                     ylim_expand=None):
+    """
+    Function to annotate values above or below barplots.
+
+    Parameters
+    ----------
+    ax : matplotlib axis object
+        The axis in which the barplot is drawn.
+    decimals : float, optional
+        Defines the number of decimals for the annotated text.
+    unit : str, optional
+        Allows to add a unit after each value.
+    padding : tuple of floats, optional
+        Defines the padding between barplot and text.
+    color : str, optional
+        Defines the color of the text.
+    fontsize : int, optional
+        Defines the fontsize of the text
+    ylim_expand : tuple, optional
+        Defines how much the ylimits are expanded to accomodate the new text into the axis.
+    """
+    if fontsize is None:
+        fontsize = plt.rcParams['font.size']
+    if ylim_expand is None:
+        ylim_expand = (0.1, 0.1)
+    ylim = ax.get_ylim()
+    y_delta = ylim[1] - ylim[0]
+
+    for p in ax.patches:
+        y = p.get_height()
+        if not np.isnan(y):
+            y_str = '{:,.{prec}f}'.format(y, prec=decimals)
+
+            if unit is not None:
+                y_str += ' {}'.format(unit)
+
+            if y < 0:
+                offset = padding[0] * y_delta
+                va = 'top'
+            else:
+                offset = -padding[1] * y_delta
+                va = 'bottom'
+
+            ax.text(p.get_x() + (p.get_width() / 2), y - offset, y_str,
+                    color=color, ha='center', va=va, rotation=0, fontsize=fontsize)
+
+    ax.set_ylim(ylim[0] - ylim_expand[0] * y_delta,
+                ylim[1] + ylim_expand[1] * y_delta)
